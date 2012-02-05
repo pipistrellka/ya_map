@@ -62,7 +62,7 @@ In application.js (for example) define a function 'createPlacemarkObserver':
   }
 That's it!
 == Note
-This plugin was written mainly to support the needs of project mydreamtrip.ru[http://mydreamtrip.ru]
+This plugin was rewritten to support the needs of project mydreamtrip.ru[http://mydreamtrip.ru]  on rails 3
 == License
 
 Copyright © 2010 [PavelTyk]
