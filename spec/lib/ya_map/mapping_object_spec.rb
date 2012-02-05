@@ -15,8 +15,8 @@ describe YaMap::MappingObject do
     mo.javascriptify_method('icon_content').should eql('iconContent')
   end
   it "should return binding JS variable" do
-    mo.binding_name.should match(/mapping_object_\d*/i)
+    mo.binding_name.should match(/mapping_object\d*/i)
     class NewObject < YaMap::MappingObject;end
-    NewObject.new.binding_name.should match(/new_object_\d*/i)
+    NewObject.new.binding_name.should match(/new_object\d*/i)
   end
 end

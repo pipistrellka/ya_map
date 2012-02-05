@@ -10,7 +10,7 @@ module YaMap
     end
     def to_s mode = :new
       case mode
-        when :new: "buildPlacemark('#{binding_name}', #{@geo_point}, #{javascriptify_variable(@options)}, #{javascriptify_variable(@extras)})"
+        when :new then "buildPlacemark('#{binding_name}', #{@geo_point}, #{javascriptify_variable(@options)}, #{javascriptify_variable(@extras)})"
       end
     end
   end

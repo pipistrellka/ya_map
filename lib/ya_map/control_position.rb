@@ -1,3 +1,4 @@
+require 'active_support/core_ext'
 module YaMap
   class ControlPosition
     TOP_LEFT = 'YMaps.ControlPosition.TOP_LEFT'
@@ -11,7 +12,7 @@ module YaMap
     end
     def to_s mode = :new
       case mode
-        when :new: "new YMaps.ControlPosition(#{@ancor}, new YMaps.Point(#{@off[:x]},#{@off[:y]}))"
+        when :new then "new YMaps.ControlPosition(#{@ancor}, new YMaps.Point(#{@off[:x]},#{@off[:y]}))"
       end
     end
   end

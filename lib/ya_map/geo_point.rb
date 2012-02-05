@@ -20,7 +20,7 @@ module YaMap
     end
     def to_s mode = :new
       case mode
-        when :new: "new YMaps.GeoPoint(#{@lng},#{@lat})"
+        when :new then "new YMaps.GeoPoint(#{@lng},#{@lat})"
       end
     end
     def to_a

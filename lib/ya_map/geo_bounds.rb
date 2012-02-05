@@ -12,7 +12,7 @@ module YaMap
     end
     def to_s mode = :new
       case mode
-        when :new: "new YMaps.GeoBounds(#{@sw},#{@ne})"
+        when :new then "new YMaps.GeoBounds(#{@sw},#{@ne})"
       end
     end
   end
