@@ -1,9 +1,9 @@
-= Yandex Map plugin for Rails
+= Yandex Map plugin for Rails 3
 == Install
-  script/plugin install git://github.com/PavelTyk/ya_map.git
+  gem 'ya-map', :git => 'git://github.com/pipistrellka/ya_map.git'
 == Example
 Generate YML config file and JS
-  script/generate ya_map
+  rails g ya_map yamap
 Get API keys at yandex website[http://api.yandex.ru/maps/form.xml] and copy it to config/ya-map-api-key.yml
 Initialize YaMap::Map object in controller
   def index
@@ -62,10 +62,10 @@ In application.js (for example) define a function 'createPlacemarkObserver':
   }
 That's it!
 == Note
-This plugin was written mainly to support the needs of my project flat-on-map.ru[http://flat-on-map.ru]
+This plugin was written mainly to support the needs of project mydreamtrip.ru[http://mydreamtrip.ru]
 == License
 
-Copyright (c) 2010 [PavelTyk]
+Copyright © 2010 [PavelTyk]
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
