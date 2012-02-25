@@ -2,7 +2,7 @@ module YaMap
   class ApiKey
     #Read the API key config for the current ENV
     def self.get(options = {})
-      api_key = YAML.load_file(RAILS_ROOT + '/config/ya-map-api-key.yml')[RAILS_ENV]
+      api_key = YAML.load_file(Rails.root.to_s + '/config/ya-map-api-key.yml')[Rails.env]
       if options.has_key?(:key)
         options[:key]
       elsif api_key.is_a?(Hash)

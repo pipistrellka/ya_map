@@ -14,8 +14,7 @@ module YaMap
     end
 
     def self.header(options={})
-      html = "<script src=\"http://api-maps.yandex.ru/1.1/index.xml?key=#{YaMap::ApiKey.get options}\" type=\"text/javascript\"></script>"
-      html << "<script src=\"/javascripts/ya-map.js\" type=\"text/javascript\"></script>"
+      "<script src=\"http://api-maps.yandex.ru/1.1/index.xml?key=#{YaMap::ApiKey.get options}\" type=\"text/javascript\"></script>"
     end
 
     def center_zoom_init(center, zoom = DEFAULT_ZOOM)
@@ -35,6 +34,21 @@ module YaMap
       @init_overlay << "map.addOverlay(#{placemark});"
     end
 
+    def add_overlay_group placemarks
+      @init_overlay << "var group = new YMaps.GeoObjectCollection();"
+      placemarks.each do |p|
+         @init_overlay << "group.add(#{p});"
+      end
+      @init_overlay << "map.addOverlay(group);"
+      @init_overlay << "map.addControl(new PlacemarksNavigator(group));"
+    end
+
+    def add_button_to_toolbar(button, id=0)
+      record_init "var button = #{button}"
+      record_init button.add_event("button", id)
+      record_init "map.addControl(new YMaps.ToolBar(button));"
+    end
+
     def set_bounds bounds
       record_init "map.setBounds(#{bounds});"
     end
@@ -48,9 +62,9 @@ module YaMap
     end
 
     def div style = {}
-      style.reverse_merge! :height => '400px', :width => '600px'
+      style.reverse_merge! :height => 400, :width => 600
       [:width, :height].each { |p| style[p] = style[p].to_s + 'px' if style[p].is_a? Integer }
-      "<div id=\"#{self.container}\" style=\"#{style.map{|k,v| "#{k}:#{v};"}}\"></div>"
+      "<div id=\"#{self.container}\" style=\"#{style.map{|k,v| "#{k}:#{v}"}.join(';')}\"></div>"
     end
 
     def record_init_global(code)

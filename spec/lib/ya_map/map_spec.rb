@@ -3,7 +3,7 @@ require 'spec_helper'
 describe YaMap::Map do
   it "should generate valid header block" do
     YaMap::ApiKey.should_receive(:get).and_return('ApiKey')
-    YaMap::Map.header.should eql('<script src="http://api-maps.yandex.ru/1.1/index.xml?key=ApiKey" type="text/javascript"></script><script src="/javascripts/ya-map.js" type="text/javascript"></script>')
+    YaMap::Map.header.should eql('<script src="http://api-maps.yandex.ru/1.1/index.xml?key=ApiKey" type="text/javascript"></script>')
   end
   let(:map) {YaMap::Map.new 'map'}
   describe 'control_init method' do
