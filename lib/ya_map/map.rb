@@ -22,6 +22,10 @@ module YaMap
       record_init "map.setCenter(#{center},#{zoom});"
     end
 
+    def center_near_init()
+      record_init "GeoTag();"
+    end
+
     def enable_scroll_zoom
       record_init "map.enableScrollZoom();"
     end

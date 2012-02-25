@@ -23,6 +23,8 @@ Display map in your view
 == More about Map
 Set map center and Zoom
   @map.center_zoom_init([53.903499, 27.561741], 15)
+Set map center  in accordance with ip address
+  @map.center_near_init
 Enable scroll zoom
   # Pass an option to initialize method
   @map = Map.new nil, :enable_scroll_zoom => true
@@ -49,6 +51,9 @@ Add description, name and icon content to the placemark
   placemark.extras[:icon_content] = 'Icon content'
 Make placemark draggable
   placemark.options[:draggable] = true
+== Add group of placemarks
+ @map.add_overlay_group placemarks
+
 == Binding variables to JS
 Let's create an observer for a placemark. It's all about JS, but we need a reference for our placemark in JS. Here is the simplest approach:
 
